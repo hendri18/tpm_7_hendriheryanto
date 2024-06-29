@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 	"tpm_7_HendriHeryanto/models"
@@ -119,7 +118,7 @@ func (p *ProductHandler) Delete(ctx *gin.Context) {
 	id, _ := strconv.Atoi(idx)
 
 	err := p.ProductService.Delete(uint64(id))
-	fmt.Printf("%v %T\n", err, err)
+
 	if err != nil {
 		ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"status":  "error",
